@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skycons</title>
+    <meta charset="us-ascii">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style type="text/css">
+      body {
+        font: 300 112.5%/1.5em "Helvetica", "Arial", sans-serif;
+        margin: 3em 3em 6em;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 3em;
+        line-height: 1em;
+        text-align: center;
+        margin: 0.5em 0;
+      }
+
+      p {
+        margin: 1.5em 0;
+      }
+
+
+      canvas {
+        display: block;
+        float: left;
+        margin-left: 8px;
+        margin-top: 8px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+      <h1>Weather</h1>
+
+
+      <div class="row">
+       <div class="col-md-6">
+
+         <div class="row">
+            <div class="col-md-6">
+              <canvas id="clear-day" name="clear-day" width="256" height="256"></canvas>
+            </div>
+            <div class="col-md-6">
+              <h2>Right now</h2>
+              <p style="font-size: 1.5em">
+                20C<br />
+                Sunny<br />
+              </p>
+            </div>
+          </div>
+       </div>
+       <div class="col-md-4">
+         <div class="row">
+           <h2>Today</h2>
+         </div>
+         <div class="row">
+           <div class="col-md-2">
+             <h3>1800</h3>
+           </div>
+           <div class="col-md-4">
+             <canvas name="partly-cloudy-day" width="48" height="48"></canvas>
+          </div>
+          <div class="col-md-6">
+             <h4>19C Partly cloudy</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <h3>1900</h3>
+          </div>
+          <div class="col-md-4">
+             <canvas name="rain" width="48" height="48"></canvas>
+         </div>
+         <div class="col-md-6">
+              <h4>12C Rain</h4>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-md-2">
+           <h3>2000</h3>
+         </div>
+         <div class="col-md-4">
+            <canvas name="rain" width="48" height="48"></canvas>
+        </div>
+        <div class="col-md-6">
+             <h4>12C Rain</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h3>2100</h3>
+        </div>
+        <div class="col-md-4">
+           <canvas name="rain" width="48" height="48"></canvas>
+       </div>
+       <div class="col-md-6">
+            <h4>12C Rain</h4>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-2">
+         <h3>2200</h3>
+       </div>
+       <div class="col-md-4">
+         <canvas name="rain" width="48" height="48"></canvas>
+      </div>
+      <div class="col-md-6">
+           <h4>12C Rain</h4>
+      </div>
+    </div>
+
+
+       </div>
+     </div>
+<br /><br />
+     <div class="row">
+       <div class="col-md-3">
+         <div class="row">
+           <div class="col-md-6">
+             <canvas name="clear-day" width="100%" height="100%"></canvas>
+           </div>
+           <div class="col-md-6">
+             <h3>Sunday</h3>
+             <p style="font-size: 1.5em">
+               20C<br />
+               Sunny<br />
+             </p>
+           </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+         <div class="row">
+           <div class="col-md-6">
+             <canvas name="rain" width="100%" height="100%"></canvas>
+           </div>
+           <div class="col-md-6">
+             <h3>Monday</h3>
+             <p style="font-size: 1.5em">
+               18C<br />
+               Rain<br />
+             </p>
+           </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+         <div class="row">
+           <div class="col-md-6">
+             <canvas name="snow" width="100%" height="100%"></canvas>
+           </div>
+           <div class="col-md-6">
+             <h3>Tuesday</h3>
+             <p style="font-size: 1.5em">
+               -2C<br />
+               Snow<br />
+             </p>
+           </div>
+        </div>
+       </div>
+       <div class="col-md-3">
+         <div class="row">
+           <div class="col-md-6">
+             <canvas  name="clear-day" width="100%" height="100%"></canvas>
+           </div>
+           <div class="col-md-6">
+             <h3>Wednesday</h3>
+             <p style="font-size: 1.5em">
+               10C<br />
+               Sunny<br />
+             </p>
+           </div>
+        </div>
+       </div>
+     </div>
+    <script src="skycons.js"></script>
+
+    <script>
+      var icons = new Skycons()
+
+          var x = document.getElementsByName("clear-day");
+          var i;
+          for (i = 0; i < x.length; i++) {
+              icons.add(x[i], Skycons.CLEAR_DAY)
+          }
+
+          var x = document.getElementsByName("partly-cloudy-day");
+          var i;
+          for (i = 0; i < x.length; i++) {
+              icons.add(x[i], Skycons.PARTLY_CLOUDY_DAY)
+          }
+
+          var x = document.getElementsByName("rain");
+          var i;
+          for (i = 0; i < x.length; i++) {
+              icons.add(x[i], Skycons.RAIN)
+          }
+
+          var x = document.getElementsByName("snow");
+          var i;
+          for (i = 0; i < x.length; i++) {
+              icons.add(x[i], Skycons.SNOW)
+          }
+
+
+      icons.play();
+    </script>
+  </body>
+</html>
