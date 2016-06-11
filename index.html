@@ -13,13 +13,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <style>
   .hour {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
    }
 
    .hour + .hour {
      border-top:0 ;
    }
+
+   .week {
+     text-align: center;
+   }
+
+
   </style>
   </head>
 
@@ -27,7 +33,7 @@
 
       <center><h1>Weather</h1></center>
 
-
+<div class="container-fluid">
       <div class="row">
        <div class="col-md-6">
 
@@ -44,7 +50,7 @@
             </div>
           </div>
        </div>
-       <div class="col-md-4">
+       <div class="col-md-6">
          <div class="row">
            <h2>Today</h2>
          </div>
@@ -108,95 +114,60 @@
        </div>
      </div>
 <br /><br />
-     <div class="row">
+     <div class="row week">
        <div class="col-md-3">
          <div class="row">
-           <div class="col-md-4">
-             <canvas name="clear-day" width="100%" height="100%"></canvas>
-           </div>
-           <div class="col-md-8">
-             <h3>Sunday</h3>
-             <p style="font-size: 1.5em">
-               20C<br />
-               Sunny<br />
-             </p>
-           </div>
-        </div>
+           <h3>Sunday</h3>
+         </div>
+         <div class="row">
+           <canvas name="clear-day" width="100%" height="100%"></canvas>
+         </div>
+         <div class="row"><h4>Sunny</h4></div>
+         <div class="row">&nbsp;</div>
+         <div class="row">High: 20C</div>
+         <div class="row">Low: 10C</div>
        </div>
        <div class="col-md-3">
          <div class="row">
-           <div class="col-md-4">
-             <canvas name="rain" width="100%" height="100%"></canvas>
-           </div>
-           <div class="col-md-8">
-             <h3>Monday</h3>
-             <p style="font-size: 1.5em">
-               18C<br />
-               Rain<br />
-             </p>
-           </div>
-        </div>
+           <h3>Monday</h3>
+         </div>
+         <div class="row">
+           <canvas name="partly-cloudy-day" width="100%" height="100%"></canvas>
+         </div>
+         <div class="row"><h4>Partly cloudy</h4></div>
+         <div class="row">&nbsp;</div>
+         <div class="row">High: 18C</div>
+         <div class="row">Low: 9C</div>
        </div>
        <div class="col-md-3">
          <div class="row">
-           <div class="col-md-4">
-             <canvas name="snow" width="100%" height="100%"></canvas>
-           </div>
-           <div class="col-md-8">
-             <h3>Tuesday</h3>
-             <p style="font-size: 1.5em">
-               -2C<br />
-               Snow<br />
-             </p>
-           </div>
-        </div>
+           <h3>Tuesday</h3>
+         </div>
+         <div class="row">
+           <canvas name="clear-day" width="100%" height="100%"></canvas>
+         </div>
+         <div class="row"><h4>Sunny</h4></div>
+         <div class="row">&nbsp;</div>
+         <div class="row">High: 21</div>
+         <div class="row">Low: 12</div>
        </div>
        <div class="col-md-3">
          <div class="row">
-           <div class="col-md-4">
-             <canvas  name="clear-day" width="100%" height="100%"></canvas>
-           </div>
-           <div class="col-md-8">
-             <h3>Wednesday</h3>
-             <p style="font-size: 1.5em">
-               10C<br />
-               Sunny<br />
-             </p>
-           </div>
-        </div>
+           <h3>Wednesday</h3>
+         </div>
+         <div class="row">
+           <canvas name="snow" width="100%" height="100%"></canvas>
+         </div>
+         <div class="row"><h4>Snow</h4></div>
+         <div class="row">&nbsp;</div>
+         <div class="row">High: 7C</div>
+         <div class="row">Low: -3C</div>
        </div>
+
      </div>
+</div>
     <script src="skycons.js"></script>
+    <script src="insert-skycons.js"></script>
 
-    <script>
-      var icons = new Skycons()
-
-          var x = document.getElementsByName("clear-day");
-          var i;
-          for (i = 0; i < x.length; i++) {
-              icons.add(x[i], Skycons.CLEAR_DAY)
-          }
-
-          var x = document.getElementsByName("partly-cloudy-day");
-          var i;
-          for (i = 0; i < x.length; i++) {
-              icons.add(x[i], Skycons.PARTLY_CLOUDY_DAY)
-          }
-
-          var x = document.getElementsByName("rain");
-          var i;
-          for (i = 0; i < x.length; i++) {
-              icons.add(x[i], Skycons.RAIN)
-          }
-
-          var x = document.getElementsByName("snow");
-          var i;
-          for (i = 0; i < x.length; i++) {
-              icons.add(x[i], Skycons.SNOW)
-          }
-
-
-      icons.play();
-    </script>
   </body>
 </html>
