@@ -6,13 +6,13 @@ This is a simple web application that displays a weather dashboard for a chosen 
 It uses the [Forecast.io](http://forecast.io) API to get weather information and icons are the amazing [Skycons](https://darkskyapp.github.io/skycons/) set from the same people.
 
 ## Get Started
-This application is written using the Flask python framework. In order to run it, you need Flask, python-dateutil and geopy. I also use gunicorn to run it, but you may chose something else.
+This application is written using the Flask python framework. In order to run it, you need [Flask](http://flask.pocoo.org/), [python-dateutil](https://pypi.python.org/pypi/python-dateutil), [python-forecastio](https://github.com/ZeevG/python-forecast.io) and [geopy](https://github.com/geopy/geopy). I also use [gunicorn](http://gunicorn.org/) to run it, but you may chose something else.
 
 To get started on Ubuntu (or similar) systems:
 
 ```
 sudo apt-get install -y python-pip python-dateutil
-sudo pip install flask gunicorn geopy
+sudo pip install flask gunicorn geopy python-forecastio
 ```
 
 Next, clone this repo somewhere. In there you will need to create a file called `config.py` with the following contents:
