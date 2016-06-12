@@ -11,14 +11,16 @@ app = Flask(__name__)
 def _jinja2_filter_datetime(date):
     return date.replace(tzinfo=tz.tzutc()).astimezone(tz.gettz('Europe/London')).strftime("%H%M")
 
+@app.template_filter('weekday')
+def _jinja2_filter_weekday(date):
+    return date.strftime("%A")
+
 
 @app.route('/')
 def index():
     lat = 52.3454
     lng = 0.3347
-
     forecast = forecastio.load_forecast(config.forecastio_api_key, lat, lng)
-
     return render_template('index.html', forecast=forecast)
 
 
