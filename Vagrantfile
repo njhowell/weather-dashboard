@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./", "/opt/weatherdashboard"
+  config.vm.synced_folder "./", "/opt/weather-dashboard"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -44,8 +44,9 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get install -y python-pip
-    sudo pip install flask
-    export FLASK_APP=/opt/weatherdashboard/weatherdashboard.py
-    flask run --host=0.0.0.0
+    sudo pip install flask gunicorn
+    cd /opt/weather-dashboard
+    gunicorn --bind 0.0.0.0:5000 weather-dashboard:app --daemon
+    ifconfig
   SHELL
 end
