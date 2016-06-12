@@ -44,7 +44,7 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get install -y python-pip python-dateutil
-    sudo pip install flask gunicorn geopy
+    sudo pip install flask gunicorn geopy python-forecastio
     cd /opt/weather-dashboard
     gunicorn --bind 0.0.0.0:5000 weather-dashboard:app --daemon
     ifconfig
