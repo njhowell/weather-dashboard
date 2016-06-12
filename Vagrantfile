@@ -43,8 +43,8 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get install -y python-pip
-    sudo pip install flask gunicorn
+    sudo apt-get install -y python-pip python-dateutil
+    sudo pip install flask gunicorn geopy
     cd /opt/weather-dashboard
     gunicorn --bind 0.0.0.0:5000 weather-dashboard:app --daemon
     ifconfig
