@@ -29,3 +29,7 @@ gunicorn --bind 0.0.0.0:5000 weather-dashboard:app
 ```
 
 You may change the bind address and port to whatever you like.
+
+
+## Vagrant
+A Vagrantfile is provided if you wish to use it. It will start an Ubuntu VM, install the nescessary components and use gunicorn to start the application. It listens on port 5000 on all interfaces attached to the VM.
