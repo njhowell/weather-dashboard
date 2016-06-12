@@ -43,7 +43,9 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get install -y nginx
-    sudo ln -s /opt/weatherdashboard /usr/share/nginx/html
+    sudo apt-get install -y python-pip
+    sudo pip install flask
+    export FLASK_APP=/opt/weatherdashboard/weatherdashboard.py
+    flask run --host=0.0.0.0
   SHELL
 end
