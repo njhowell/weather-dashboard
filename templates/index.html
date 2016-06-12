@@ -11,81 +11,21 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <style>
-      .hour {
-        border-top: 1px solid gray;
-        border-bottom: 1px solid gray;
-      }
 
-      .hour + .hour {
-        border-top:0 ;
-      }
-
-      .week {
-        text-align: center;
-      }
-
-    </style>
   </head>
 
   <body>
-      <center><h1>Weather</h1></center>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-6">
-                <canvas name="{{ forecast.currently().icon }}" width="256" height="256"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h2>Right now</h2>
-                <p style="font-size: 1.5em">
-                  {{ forecast.currently().temperature|round|int }} &deg;C<br />
-                  {{ forecast.currently().summary }}<br />
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <h2>Today</h2>
-            </div>
-            {% for i in range(1, 8) %}
-            <div class="row hour">
-              <div class="col-md-2">
-                <h3>{{ forecast.hourly().data[i].time|localtime }}</h3>
-              </div>
-              <div class="col-md-4">
-                <canvas name="{{ forecast.hourly().data[i].icon }}" width="48" height="48"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h4>{{ forecast.hourly().data[i].temperature|round|int }} &deg;C {{ forecast.hourly().data[i].summary }}</h4>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-        <br /><br />
-        <div class="row week">
-          {% for i in range(1, 5) %}
-          <div class="col-md-3">
-            <div class="row">
-              <h3>{{ forecast.daily().data[i].time|weekday }}</h3>
-            </div>
-            <div class="row">
-              <canvas name="{{ forecast.daily().data[i].icon }}" width="100%" height="100%"></canvas>
-            </div>
-            <div class="row"><h4>{{ forecast.daily().data[i].summary }}</h4></div>
-            <div class="row">&nbsp;</div>
-            <div class="row">High: {{ forecast.daily().data[i].temperatureMax|round|int }} &deg;C</div>
-            <div class="row">Low: {{ forecast.daily().data[i].temperatureMin|round|int }} &deg;C</div>
-          </div>
-          {% endfor %}
+    <center><h1>Weather Dashboard</h1>
+    <div class="container">
+      <form class="form-inline" action="{{ url_for('l') }}" method=POST>
 
-        </div>
-      </div>
-      <script src="{{ url_for('static', filename='skycons.js') }}"></script>
-      <script src="{{ url_for('static', filename='insert-skycons.js') }}"></script>
-      <p style="font-size: x-small; text-align: center;">Powered by <a href="http://forecast.io">Forecast</p>
-    </body>
+        <label for="inputLocation" class="sr-only">Location</label>
+        <input type="text" id="inputLocation" name="inputLocation" class="form-control" placeholder="Location" required autofocus>
+
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </center>
+  </body>
+
 </html>

@@ -1,8 +1,8 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request, redirect, url_for
 import forecastio
 from datetime import datetime
 from dateutil import tz
+from geopy.geocoders import Nominatim
 
 import config
 app = Flask(__name__)
@@ -15,13 +15,22 @@ def _jinja2_filter_datetime(date):
 def _jinja2_filter_weekday(date):
     return date.strftime("%A")
 
-
 @app.route('/')
 def index():
-    lat = 52.3454
-    lng = 0.3347
-    forecast = forecastio.load_forecast(config.forecastio_api_key, lat, lng)
-    return render_template('index.html', forecast=forecast)
+    return render_template('index.html')
+
+@app.route('/l', methods=['POST'])
+def l():
+    #work out location
+    geolocator = Nominatim()
+    location = geolocator.geocode(request.form['inputLocation'])
+    return redirect(url_for('forecast', lat=location.latitude, lng=location.longitude))
+
+
+@app.route('/f/<lat>/<lng>')
+def forecast(lat=52.3454, lng=0.3347):
+    forecast = forecastio.load_forecast(config.forecastio_api_key, lat, lng, units="uk")
+    return render_template('forecast.html', forecast=forecast)
 
 
 
