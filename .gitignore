@@ -90,3 +90,6 @@ ENV/
 
 #Ignore Vagrant
 .vagrant/
+
+# Do not commit config
+config.py

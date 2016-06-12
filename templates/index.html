@@ -35,13 +35,13 @@
           <div class="col-md-6">
             <div class="row">
               <div class="col-md-6">
-                <canvas id="clear-day" name="clear-day" width="256" height="256"></canvas>
+                <canvas name="{{ forecast.currently().icon }}" width="256" height="256"></canvas>
               </div>
               <div class="col-md-6">
                 <h2>Right now</h2>
                 <p style="font-size: 1.5em">
-                  20C<br />
-                  Sunny<br />
+                  {{ forecast.currently().temperature|round|int }} &deg;C<br />
+                  {{ forecast.currently().summary }}<br />
                 </p>
               </div>
             </div>
@@ -50,61 +50,19 @@
             <div class="row">
               <h2>Today</h2>
             </div>
+            {% for i in range(0, 8) %}
             <div class="row hour">
               <div class="col-md-2">
-                <h3>1800</h3>
+                <h3>{{ forecast.hourly().data[i].time|localtime }}</h3>
               </div>
               <div class="col-md-4">
-                <canvas name="partly-cloudy-day" width="48" height="48"></canvas>
+                <canvas name="{{ forecast.hourly().data[i].icon }}" width="48" height="48"></canvas>
               </div>
               <div class="col-md-6">
-                <h4>19C Partly cloudy</h4>
+                <h4>{{ forecast.hourly().data[i].temperature|round|int }} &deg;C {{ forecast.hourly().data[i].summary }}</h4>
               </div>
             </div>
-            <div class="row hour">
-              <div class="col-md-2">
-                <h3>1900</h3>
-              </div>
-              <div class="col-md-4">
-                <canvas name="rain" width="48" height="48"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h4>12C Rain</h4>
-              </div>
-            </div>
-            <div class="row hour">
-              <div class="col-md-2">
-                <h3>2000</h3>
-              </div>
-              <div class="col-md-4">
-                <canvas name="partly-cloudy-night" width="48" height="48"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h4>12C Rain</h4>
-              </div>
-            </div>
-            <div class="row hour">
-              <div class="col-md-2">
-                <h3>2100</h3>
-              </div>
-              <div class="col-md-4">
-                <canvas name="partly-cloudy-day" width="48" height="48"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h4>12C Rain</h4>
-              </div>
-            </div>
-            <div class="row hour">
-              <div class="col-md-2">
-                <h3>2200</h3>
-              </div>
-              <div class="col-md-4">
-                <canvas name="clear-night" width="48" height="48"></canvas>
-              </div>
-              <div class="col-md-6">
-                <h4>12C Rain</h4>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
         <br /><br />
